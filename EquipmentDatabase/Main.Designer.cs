@@ -35,14 +35,19 @@
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.echipamenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eleviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loguriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stripAddEquipmentMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.stripAddCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.stripAddEquipment = new System.Windows.Forms.ToolStripMenuItem();
             this.stripAddStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.stripAddLog = new System.Windows.Forms.ToolStripMenuItem();
+            this.cautăToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataOutput)).BeginInit();
             this.topMenu.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +57,7 @@
             this.dataOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataOutput.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataOutput.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.dataOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataOutput.Location = new System.Drawing.Point(12, 37);
             this.dataOutput.Name = "dataOutput";
@@ -61,17 +66,18 @@
             // 
             // topMenu
             // 
-            this.topMenu.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.topMenu.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.topMenu.GripMargin = new System.Windows.Forms.Padding(0);
             this.topMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem,
             this.selectToolStripMenuItem,
-            this.addToolStripMenuItem});
+            this.addToolStripMenuItem,
+            this.cautăToolStripMenuItem});
             this.topMenu.Location = new System.Drawing.Point(0, 0);
             this.topMenu.Name = "topMenu";
             this.topMenu.Padding = new System.Windows.Forms.Padding(6, 2, 0, 6);
             this.topMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.topMenu.Size = new System.Drawing.Size(1087, 30);
+            this.topMenu.Size = new System.Drawing.Size(1087, 33);
             this.topMenu.TabIndex = 1;
             this.topMenu.Text = "menuStrip1";
             // 
@@ -83,29 +89,63 @@
             this.optionsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 25);
             this.optionsToolStripMenuItem.Text = "Opțiuni";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.settingsToolStripMenuItem.Text = "Setări";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.exitToolStripMenuItem.Text = "Ieșire";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ieșireToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // selectToolStripMenuItem
             // 
+            this.selectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.echipamenteToolStripMenuItem,
+            this.categoriiToolStripMenuItem,
+            this.eleviToolStripMenuItem,
+            this.loguriToolStripMenuItem});
             this.selectToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
-            this.selectToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
+            this.selectToolStripMenuItem.Size = new System.Drawing.Size(72, 25);
             this.selectToolStripMenuItem.Text = "Afisare";
+            // 
+            // echipamenteToolStripMenuItem
+            // 
+            this.echipamenteToolStripMenuItem.Name = "echipamenteToolStripMenuItem";
+            this.echipamenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.echipamenteToolStripMenuItem.Text = "Echipamente";
+            this.echipamenteToolStripMenuItem.Click += new System.EventHandler(this.echipamenteToolStripMenuItem_Click);
+            // 
+            // categoriiToolStripMenuItem
+            // 
+            this.categoriiToolStripMenuItem.Name = "categoriiToolStripMenuItem";
+            this.categoriiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriiToolStripMenuItem.Text = "Categorii";
+            this.categoriiToolStripMenuItem.Click += new System.EventHandler(this.categoriiToolStripMenuItem_Click);
+            // 
+            // eleviToolStripMenuItem
+            // 
+            this.eleviToolStripMenuItem.Name = "eleviToolStripMenuItem";
+            this.eleviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eleviToolStripMenuItem.Text = "Elevi";
+            this.eleviToolStripMenuItem.Click += new System.EventHandler(this.eleviToolStripMenuItem_Click);
+            // 
+            // loguriToolStripMenuItem
+            // 
+            this.loguriToolStripMenuItem.Name = "loguriToolStripMenuItem";
+            this.loguriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loguriToolStripMenuItem.Text = "Loguri";
+            this.loguriToolStripMenuItem.Click += new System.EventHandler(this.loguriToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
@@ -117,7 +157,7 @@
             this.addToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(75, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(75, 25);
             this.addToolStripMenuItem.Text = "Adaugă";
             // 
             // stripAddEquipmentMenu
@@ -137,6 +177,7 @@
             this.stripAddCategory.Name = "stripAddCategory";
             this.stripAddCategory.Size = new System.Drawing.Size(180, 22);
             this.stripAddCategory.Text = "Categorie";
+            this.stripAddCategory.Click += new System.EventHandler(this.stripAddCategory_Click);
             // 
             // stripAddEquipment
             // 
@@ -156,29 +197,34 @@
             // 
             this.stripAddLog.Name = "stripAddLog";
             this.stripAddLog.Size = new System.Drawing.Size(180, 22);
-            this.stripAddLog.Text = "Înregistrare";
+            this.stripAddLog.Text = "Log";
             // 
-            // btnSelect
+            // cautăToolStripMenuItem
             // 
-            this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelect.Location = new System.Drawing.Point(972, 574);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(103, 32);
-            this.btnSelect.TabIndex = 2;
-            this.btnSelect.Text = "Refresh";
-            this.btnSelect.UseVisualStyleBackColor = true;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            this.cautăToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cautăToolStripMenuItem.Name = "cautăToolStripMenuItem";
+            this.cautăToolStripMenuItem.Size = new System.Drawing.Size(66, 25);
+            this.cautăToolStripMenuItem.Text = "Caută";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(972, 574);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(103, 32);
+            this.btnRefresh.TabIndex = 2;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1087, 618);
-            this.Controls.Add(this.btnSelect);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.dataOutput);
             this.Controls.Add(this.topMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -209,7 +255,12 @@
         private System.Windows.Forms.ToolStripMenuItem stripAddLog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem selectToolStripMenuItem;
-        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ToolStripMenuItem echipamenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eleviToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loguriToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cautăToolStripMenuItem;
     }
 }
 

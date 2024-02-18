@@ -30,24 +30,53 @@ namespace EquipmentDatabase
             InitializeComponent();
         }
 
-        private void ieșireToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadData();
+            MessageBox.Show("Coming soon");
         }
 
-        private void LoadData()
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void echipamenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadData("SELECT * FROM Equipment");
+        }
+
+        private void categoriiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadData("SELECT * FROM Category");
+        }
+
+        private void eleviToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadData("SELECT * FROM Students");
+        }
+
+        private void loguriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadData("SELECT * FROM Logs");
+        }
+
+        private void stripAddCategory_Click(object sender, EventArgs e)
+        {
+            formAddCategory addCategory = new formAddCategory();
+            addCategory.Show();
+        }
+
+        private void LoadData(string query)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "SELECT * FROM Category";
-
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
 
                     DataTable dataTable = new DataTable();
