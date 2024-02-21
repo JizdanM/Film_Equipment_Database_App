@@ -12,9 +12,25 @@ namespace EquipmentDatabase
 {
     public partial class formAddCategory : Form
     {
+        public string CategoryName;
+
         public formAddCategory()
         {
             InitializeComponent();
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            if (!txtCategory.Text.Equals(""))
+            {
+                CategoryName = txtCategory.Text;
+                DialogResult = DialogResult.OK;
+                MessageBox.Show("Datele au fost introduse cu secces.");
+                Close();
+            } else
+            {
+                MessageBox.Show("Introduceti denumirea categoriei!");
+            }
         }
     }
 }

@@ -91,3 +91,6 @@ C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\System.Threadi
 C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\System.ValueTuple.xml
 C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatabase.csproj.CopyComplete
 C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatabase.formAddCategory.resources
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatabase.addEquipment.resources
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatabase.addStudent.resources
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatabase.addLog.resources

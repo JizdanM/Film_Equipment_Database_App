@@ -98,6 +98,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addEquipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addEquipment.Designer.cs">
+      <DependentUpon>addEquipment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addLog.Designer.cs">
+      <DependentUpon>addLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addStudent.Designer.cs">
+      <DependentUpon>addStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseDAO.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +131,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addEquipment.resx">
+      <DependentUpon>addEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addLog.resx">
+      <DependentUpon>addLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addStudent.resx">
+      <DependentUpon>addStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

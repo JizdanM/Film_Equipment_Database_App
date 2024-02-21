@@ -77,7 +77,7 @@
             this.topMenu.Name = "topMenu";
             this.topMenu.Padding = new System.Windows.Forms.Padding(6, 2, 0, 6);
             this.topMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.topMenu.Size = new System.Drawing.Size(1087, 33);
+            this.topMenu.Size = new System.Drawing.Size(1087, 30);
             this.topMenu.TabIndex = 1;
             this.topMenu.Text = "menuStrip1";
             // 
@@ -89,20 +89,20 @@
             this.optionsToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.optionsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 25);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(73, 22);
             this.optionsToolStripMenuItem.Text = "Opțiuni";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.settingsToolStripMenuItem.Text = "Setări";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Ieșire";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -116,7 +116,7 @@
             this.selectToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selectToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
-            this.selectToolStripMenuItem.Size = new System.Drawing.Size(72, 25);
+            this.selectToolStripMenuItem.Size = new System.Drawing.Size(72, 22);
             this.selectToolStripMenuItem.Text = "Afisare";
             // 
             // echipamenteToolStripMenuItem
@@ -157,7 +157,7 @@
             this.addToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(75, 25);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(75, 22);
             this.addToolStripMenuItem.Text = "Adaugă";
             // 
             // stripAddEquipmentMenu
@@ -175,15 +175,16 @@
             // 
             this.stripAddCategory.BackColor = System.Drawing.Color.Indigo;
             this.stripAddCategory.Name = "stripAddCategory";
-            this.stripAddCategory.Size = new System.Drawing.Size(180, 22);
+            this.stripAddCategory.Size = new System.Drawing.Size(164, 22);
             this.stripAddCategory.Text = "Categorie";
             this.stripAddCategory.Click += new System.EventHandler(this.stripAddCategory_Click);
             // 
             // stripAddEquipment
             // 
             this.stripAddEquipment.Name = "stripAddEquipment";
-            this.stripAddEquipment.Size = new System.Drawing.Size(180, 22);
+            this.stripAddEquipment.Size = new System.Drawing.Size(164, 22);
             this.stripAddEquipment.Text = "Echipament";
+            this.stripAddEquipment.Click += new System.EventHandler(this.stripAddEquipment_Click);
             // 
             // stripAddStudent
             // 
@@ -192,18 +193,20 @@
             this.stripAddStudent.Name = "stripAddStudent";
             this.stripAddStudent.Size = new System.Drawing.Size(180, 22);
             this.stripAddStudent.Text = "Elev";
+            this.stripAddStudent.Click += new System.EventHandler(this.stripAddStudent_Click);
             // 
             // stripAddLog
             // 
             this.stripAddLog.Name = "stripAddLog";
             this.stripAddLog.Size = new System.Drawing.Size(180, 22);
             this.stripAddLog.Text = "Log";
+            this.stripAddLog.Click += new System.EventHandler(this.stripAddLog_Click);
             // 
             // cautăToolStripMenuItem
             // 
-            this.cautăToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cautăToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cautăToolStripMenuItem.Name = "cautăToolStripMenuItem";
-            this.cautăToolStripMenuItem.Size = new System.Drawing.Size(66, 25);
+            this.cautăToolStripMenuItem.Size = new System.Drawing.Size(64, 22);
             this.cautăToolStripMenuItem.Text = "Caută";
             // 
             // btnRefresh
