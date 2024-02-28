@@ -9,6 +9,6 @@
   ],
 
   "ConnectionStrings": {
-    "MyConnectionString": "YourConnectionStringHere"
+    "MyConnectionString": "Host=localhost;Username=postgres;Password=thisispass321;Database=Echipamente"
   }
 }

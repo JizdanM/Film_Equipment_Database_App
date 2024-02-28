@@ -48,6 +48,9 @@
             this.cautăToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dupaElevToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dupaEchipamentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataOutput)).BeginInit();
             this.topMenu.SuspendLayout();
             this.SuspendLayout();
@@ -95,14 +98,14 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.settingsToolStripMenuItem.Text = "Setări";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.exitToolStripMenuItem.Text = "Ieșire";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -122,28 +125,28 @@
             // echipamenteToolStripMenuItem
             // 
             this.echipamenteToolStripMenuItem.Name = "echipamenteToolStripMenuItem";
-            this.echipamenteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.echipamenteToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.echipamenteToolStripMenuItem.Text = "Echipamente";
             this.echipamenteToolStripMenuItem.Click += new System.EventHandler(this.echipamenteToolStripMenuItem_Click);
             // 
             // categoriiToolStripMenuItem
             // 
             this.categoriiToolStripMenuItem.Name = "categoriiToolStripMenuItem";
-            this.categoriiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoriiToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.categoriiToolStripMenuItem.Text = "Categorii";
             this.categoriiToolStripMenuItem.Click += new System.EventHandler(this.categoriiToolStripMenuItem_Click);
             // 
             // eleviToolStripMenuItem
             // 
             this.eleviToolStripMenuItem.Name = "eleviToolStripMenuItem";
-            this.eleviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eleviToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.eleviToolStripMenuItem.Text = "Elevi";
             this.eleviToolStripMenuItem.Click += new System.EventHandler(this.eleviToolStripMenuItem_Click);
             // 
             // loguriToolStripMenuItem
             // 
             this.loguriToolStripMenuItem.Name = "loguriToolStripMenuItem";
-            this.loguriToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loguriToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.loguriToolStripMenuItem.Text = "Loguri";
             this.loguriToolStripMenuItem.Click += new System.EventHandler(this.loguriToolStripMenuItem_Click);
             // 
@@ -168,7 +171,7 @@
             this.stripAddEquipment});
             this.stripAddEquipmentMenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.stripAddEquipmentMenu.Name = "stripAddEquipmentMenu";
-            this.stripAddEquipmentMenu.Size = new System.Drawing.Size(180, 22);
+            this.stripAddEquipmentMenu.Size = new System.Drawing.Size(164, 22);
             this.stripAddEquipmentMenu.Text = "Echipament";
             // 
             // stripAddCategory
@@ -191,19 +194,21 @@
             this.stripAddStudent.BackColor = System.Drawing.Color.Indigo;
             this.stripAddStudent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.stripAddStudent.Name = "stripAddStudent";
-            this.stripAddStudent.Size = new System.Drawing.Size(180, 22);
+            this.stripAddStudent.Size = new System.Drawing.Size(164, 22);
             this.stripAddStudent.Text = "Elev";
             this.stripAddStudent.Click += new System.EventHandler(this.stripAddStudent_Click);
             // 
             // stripAddLog
             // 
             this.stripAddLog.Name = "stripAddLog";
-            this.stripAddLog.Size = new System.Drawing.Size(180, 22);
+            this.stripAddLog.Size = new System.Drawing.Size(164, 22);
             this.stripAddLog.Text = "Log";
             this.stripAddLog.Click += new System.EventHandler(this.stripAddLog_Click);
             // 
             // cautăToolStripMenuItem
             // 
+            this.cautăToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logToolStripMenuItem});
             this.cautăToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cautăToolStripMenuItem.Name = "cautăToolStripMenuItem";
             this.cautăToolStripMenuItem.Size = new System.Drawing.Size(64, 22);
@@ -220,6 +225,27 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // logToolStripMenuItem
+            // 
+            this.logToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dupaElevToolStripMenuItem,
+            this.dupaEchipamentToolStripMenuItem});
+            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logToolStripMenuItem.Text = "Log";
+            // 
+            // dupaElevToolStripMenuItem
+            // 
+            this.dupaElevToolStripMenuItem.Name = "dupaElevToolStripMenuItem";
+            this.dupaElevToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.dupaElevToolStripMenuItem.Text = "Dupa elev";
+            // 
+            // dupaEchipamentToolStripMenuItem
+            // 
+            this.dupaEchipamentToolStripMenuItem.Name = "dupaEchipamentToolStripMenuItem";
+            this.dupaEchipamentToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.dupaEchipamentToolStripMenuItem.Text = "Dupa echipament";
             // 
             // formMain
             // 
@@ -264,6 +290,9 @@
         private System.Windows.Forms.ToolStripMenuItem eleviToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loguriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cautăToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dupaElevToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dupaEchipamentToolStripMenuItem;
     }
 }
 

@@ -19,6 +19,8 @@ namespace EquipmentDatabase
         public addEquipment()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+
             Dictionary<int, string> categories = new Dictionary<int, string>();
 
             foreach (DataRow row in DAO.LoadData("SELECT ID, CatName AS Categoria FROM Category").Rows)

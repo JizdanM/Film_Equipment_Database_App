@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using Npgsql;
 
 namespace EquipmentDatabase
 {
@@ -26,9 +27,9 @@ namespace EquipmentDatabase
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
                 {
-                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, connection);
 
                     DataTable dataTable = new DataTable();
 
@@ -48,18 +49,29 @@ namespace EquipmentDatabase
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
                 {
                     connection.Open();
 
-                    SqlCommand command = new SqlCommand(query, connection);
+                    NpgsqlCommand command = new NpgsqlCommand(query, connection);
 
                     int rowsAffected = command.ExecuteNonQuery();
 
-                    if (rowsAffected == 0)
+                    if (rowsAffected == 1)
                     {
-                        Console.WriteLine("Datele au fost adaugate cu succes");
+                        MessageBox.Show("Datele au fost adaugate cu succes");
                     }
+                }
+            }
+            catch (SqlException ex)
+            {
+                if (ex.Number == 23505)
+                {
+                    MessageBox.Show("Eroare, echipamentul nu a fost returnat.");
+                }
+                else
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}");
                 }
             }
             catch (Exception ex)

@@ -94,3 +94,17 @@ C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatab
 C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatabase.addEquipment.resources
 C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatabase.addStudent.resources
 C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\obj\Debug\EquipmentDatabase.addLog.resources
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\Npgsql.dll
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\System.Collections.Immutable.dll
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\System.Threading.Channels.dll
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\Npgsql.xml
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\System.Collections.Immutable.xml
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\GitHub\Film_Equipment_Database_App\EquipmentDatabase\bin\Debug\System.Threading.Channels.xml

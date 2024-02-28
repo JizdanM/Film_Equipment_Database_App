@@ -17,6 +17,7 @@ namespace EquipmentDatabase
         public formAddCategory()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
         }
 
         private void btnAddCategory_Click(object sender, EventArgs e)

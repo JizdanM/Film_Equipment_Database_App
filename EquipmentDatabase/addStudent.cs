@@ -21,6 +21,7 @@ namespace EquipmentDatabase
         public addStudent()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
         }
 
         private void btnAddElev_Click(object sender, EventArgs e)

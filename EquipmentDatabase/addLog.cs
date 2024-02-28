@@ -21,6 +21,7 @@ namespace EquipmentDatabase
         public addLog()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
 
             // Display Categories in combobox
             Dictionary<int, string> categories = new Dictionary<int, string>();
