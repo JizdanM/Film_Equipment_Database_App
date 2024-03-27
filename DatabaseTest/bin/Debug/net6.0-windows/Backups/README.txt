@@ -1,0 +1,1 @@
+Acesta este folderul unde vor fi stocate backup-urile bazei de date

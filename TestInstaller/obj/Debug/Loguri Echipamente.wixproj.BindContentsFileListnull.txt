@@ -1,0 +1,5 @@
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\DatabaseTest.deps.json
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\DatabaseTest.dll
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\DatabaseTest.exe
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\DatabaseTest.pdb
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\DatabaseTest.runtimeconfig.json

@@ -1,0 +1,12 @@
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Loguri Echipamente.deps.json
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Loguri Echipamente.dll
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Loguri Echipamente.exe
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Loguri Echipamente.pdb
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Loguri Echipamente.runtimeconfig.json
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Npgsql.dll
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\Backups\README.txt
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\GitHub\Film_Equipment_Database_App\DatabaseTest\bin\Debug\net6.0-windows\System.Text.Json.dll

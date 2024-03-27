@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define DatabaseTest_TargetDir=$(var.Loguri Echipamente.TargetDir)?>
+	<!-- Define app id for each Platform -->
+	<?if $(var.Platform)=x64 ?>
+	<?define ProductCode = "{D2088CD5-9872-4BC7-8D13-4C941C93B510}" ?>
+	<?else?>
+	<?define ProductCode = "{709C6362-9762-4446-8A42-820895752ACB}" ?>
+	<?endif?>
+
+	<!-- App code -->
+	<?define UpgradeCode = "{856EE306-3CA1-4AAD-9121-23EB0FD3E1B5}" ?>
+
+	<!-- Version -->
+	<?define BuildVersion = 1.0.0.1 ?><?define Loguri Echipamente_TargetDir=$(var.Loguri Echipamente.TargetDir)?>
+	
+	<!-- Product -->
+	<Product Id="$(var.ProductCode)" Name="Loguri Echipamente" Language="1033" Version="$(var.BuildVersion)" Manufacturer="JizdanM" UpgradeCode="$(var.UpgradeCode)">
+		
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Manufacturer="JizdanM" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+		<Feature Id="ProductFeature" Title="Loguri Echipamente" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentRef Id="ApplicationShortcut" />
+			<ComponentRef Id="ApplicationShortcutDesktop" />
+		</Feature>
+	</Product>
+
+	<!-- Install folder -->
+	<Fragment>
+		
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="Loguri Echipamente">
+					<Directory Id="BACKUPFOLDER" Name="Backups" />
+				</Directory>
+			</Directory>
+				
+			<Directory Id="ProgramMenuFolder">
+				<Directory Id="ApplicationProgramsFolder" Name="MyWpfApplication" />
+			</Directory>
+			<Directory Id="DesktopFolder" Name="Desktop" />
+		</Directory>
+		
+	</Fragment>
+
+	<Fragment>
+		
+		<DirectoryRef Id="ApplicationProgramsFolder">
+			<Component Id="ApplicationShortcut" Guid="9bd13330-6540-406f-a3a8-d7f7c69ae7f9">
+				<Shortcut Id="ApplicationStartMenuShortcut" Name="Loguri Echipamente" Description="Loguri Echipamente" Target="[INSTALLFOLDER]Loguri Echipamente.exe" WorkingDirectory="INSTALLFOLDER" />
+				<RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+				<RegistryValue Root="HKCU" Key="Software\Loguri Echipamente" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+		
+		<DirectoryRef Id="DesktopFolder">
+			<Component Id="ApplicationShortcutDesktop" Guid="cde1e030-eb64-49a5-b7b8-400b379c2d1a">
+				<Shortcut Id="ApplicationDesktopShortcut" Name="Loguri Echipamente" Description="Loguri Echipamente" Target="[INSTALLFOLDER]Loguri Echipamente.exe" WorkingDirectory="INSTALLFOLDER" />
+				<RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+				<RegistryValue Root="HKCU" Key="Software\Loguri Echipamente" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			</Component>
+		</DirectoryRef>
+		
+	</Fragment>
+
+	<!-- Add the project files -->
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			
+			<Component Id="README.txt" Guid="152DD346-D4E9-4E5F-94D2-74D880E4E62D">
+			  <File Id="README.txt" Name="README.txt" Source="$(var.Loguri Echipamente_TargetDir)Backups\README.txt" />
+			</Component>
+				
+			<Component Id="Loguri_Echipamente.runtimeconfig.json" Guid="d1c3f998-9c5d-4f0d-933a-d88cee5a7a27">
+			  <File Id="Loguri_Echipamente.runtimeconfig.json" Name="Loguri Echipamente.runtimeconfig.json" Source="$(var.Loguri Echipamente_TargetDir)Loguri Echipamente.runtimeconfig.json" />
+			</Component>
+			
+			<Component Id="Loguri_Echipamente.dll" Guid="79c5eaa3-bb25-4edf-87df-1d510e6f3ac7">
+			  <File Id="Loguri_Echipamente.dll" Name="Loguri Echipamente.dll" Source="$(var.Loguri Echipamente_TargetDir)Loguri Echipamente.dll" />
+			</Component>
+			
+			<Component Id="Loguri_Echipamente.exe" Guid="3C0A2B37-97E5-4531-B767-9468B9D2354F">
+			  <File Id="Loguri_Echipamente.exe" Name="Loguri Echipamente.exe" Source="$(var.Loguri Echipamente_TargetDir)Loguri Echipamente.exe" />
+			</Component>
+			
+			<Component Id="Loguri_Echipamente.deps.json" Guid="C749F544-A04D-4C0C-90F6-7E74E3559F00">
+			  <File Id="Loguri_Echipamente.deps.json" Name="Loguri Echipamente.deps.json" Source="$(var.Loguri Echipamente_TargetDir)Loguri Echipamente.deps.json" />
+			</Component>
+			
+			<Component Id="Loguri_Echipamente.pdb" Guid="D5D5C8EF-B688-49DB-8960-1ACE8DB6D4D6">
+			  <File Id="Loguri_Echipamente.pdb" Name="Loguri Echipamente.pdb" Source="$(var.Loguri Echipamente_TargetDir)Loguri Echipamente.pdb" />
+			</Component>
+			
+			<Component Id="Npgsql.dll" Guid="7a0d6585-27ef-4fda-8780-3bd268cb4892">
+			  <File Id="Npgsql.dll" Name="Npgsql.dll" Source="$(var.Loguri Echipamente_TargetDir)Npgsql.dll" />
+			</Component>
+			
+			<Component Id="Microsoft.Extensions.Logging.Abstractions.dll" Guid="3eaad974-774e-4b51-92d5-7f91805e74be">
+			  <File Id="Microsoft.Extensions.Logging.Abstractions.dll" Name="Microsoft.Extensions.Logging.Abstractions.dll" Source="$(var.Loguri Echipamente_TargetDir)Microsoft.Extensions.Logging.Abstractions.dll" />
+			</Component>
+			
+			<Component Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Guid="8dd098ab-112b-4926-a815-70fb8768c999">
+			  <File Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Name="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Source="$(var.Loguri Echipamente_TargetDir)Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+			</Component>
+			
+			<Component Id="System.Diagnostics.DiagnosticSource.dll" Guid="f876a8b1-7975-4cb5-bc6e-90d81ca6d02c">
+			  <File Id="System.Diagnostics.DiagnosticSource.dll" Name="System.Diagnostics.DiagnosticSource.dll" Source="$(var.Loguri Echipamente_TargetDir)System.Diagnostics.DiagnosticSource.dll" />
+			</Component>
+			
+			<Component Id="System.Text.Json.dll" Guid="469039a3-c0df-4c37-99f5-55d411d29386">
+			  <File Id="System.Text.Json.dll" Name="System.Text.Json.dll" Source="$(var.Loguri Echipamente_TargetDir)System.Text.Json.dll" />
+			</Component>
+			
+			<Component Id="System.Text.Encodings.Web.dll" Guid="1648f2b7-5d3b-43ab-b9d7-3f4b52e7d48c">
+			  <File Id="System.Text.Encodings.Web.dll" Name="System.Text.Encodings.Web.dll" Source="$(var.Loguri Echipamente_TargetDir)System.Text.Encodings.Web.dll" />
+			</Component>
+			
+		</ComponentGroup>
+	</Fragment>
+</Wix>

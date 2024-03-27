@@ -1,0 +1,30 @@
+﻿<Window x:Class="DatabaseTest.addLog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseTest"
+        mc:Ignorable="d"
+        Title="addLog" Height="392" Width="560" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="210*"/>
+            <RowDefinition Height="111*"/>
+            <RowDefinition Height="55*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Categoria echipamentului" HorizontalAlignment="Left" Margin="21,28,0,0" VerticalAlignment="Top" Width="513" FontFamily="Microsoft Sans Serif" FontSize="17" FontWeight="Bold" Height="29"/>
+        <ComboBox x:Name="cmbCategory" HorizontalAlignment="Left" Margin="21,57,0,0" VerticalAlignment="Top" Width="513" FontFamily="Microsoft Sans Serif" FontSize="17" Height="25" DropDownClosed="txtLogCategory_DropDownClosed"/>
+        
+        <Label Content="Echipamentul" HorizontalAlignment="Left" Margin="21,105,0,0" VerticalAlignment="Top" Width="513" FontFamily="Microsoft Sans Serif" FontSize="17" FontWeight="Bold" Height="29"/>
+        <ComboBox x:Name="cmbEquipment" HorizontalAlignment="Left" Margin="21,134,0,0" VerticalAlignment="Top" Width="513" FontFamily="Microsoft Sans Serif" FontSize="17" Height="25"/>
+        
+        <Label Content="Elevul" HorizontalAlignment="Left" Margin="21,175,0,0" VerticalAlignment="Top" Width="513" FontFamily="Microsoft Sans Serif" FontSize="17" FontWeight="Bold" Height="29"/>
+        <ComboBox x:Name="cmbStudent" HorizontalAlignment="Left" Margin="21,204,0,0" VerticalAlignment="Top" Width="513" FontFamily="Microsoft Sans Serif" FontSize="17" Grid.RowSpan="2" Height="25"/>
+        
+        <Label Content="Data împrumutării" HorizontalAlignment="Left" Margin="18,40,0,0" VerticalAlignment="Top" Width="515" FontFamily="Microsoft Sans Serif" FontSize="17" FontWeight="Bold" Height="29" Grid.Row="1"/>
+        <DatePicker x:Name="selectDate" HorizontalAlignment="Left" Margin="21,74,0,0" VerticalAlignment="Top" Width="217" FontFamily="Microsoft Sans Serif" FontSize="17" Grid.Row="1" Height="27" DisplayDate="2024-03-24"/>
+        
+        <Button x:Name="btnSave" Content="Save" Margin="466,0,26,15" FontFamily="Microsoft Sans Serif" FontWeight="Bold" FontSize="16" Click="btnAddLog_Click" Grid.Row="2" Height="25" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,7 @@
+C:\GitHub\Film_Equipment_Database_App\TestInstaller\bin\Debug\cab1.cab
+C:\GitHub\Film_Equipment_Database_App\TestInstaller\bin\Debug\TestInstaller.msi
+C:\GitHub\Film_Equipment_Database_App\TestInstaller\bin\Debug\TestInstaller.wixpdb
+obj\Debug\Product.wixobj
+obj\Debug\Loguri Echipamente Installer.wixproj.BindContentsFileListnull.txt
+obj\Debug\Loguri Echipamente Installer.wixproj.BindOutputsFileListnull.txt
+obj\Debug\Loguri Echipamente Installer.wixproj.BindBuiltOutputsFileListnull.txt
