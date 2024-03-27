@@ -6,7 +6,9 @@
   <DirectoryMappings>
     <Item Key="" Value="INSTALLFOLDER" />
   </DirectoryMappings>
-  <FileMappings />
+  <FileMappings>
+    <Item Key="Backups\README.txt" Value="README.txt" />
+  </FileMappings>
   <DeploySymbols>false</DeploySymbols>
   <DeployLocalizations>true</DeployLocalizations>
   <DeployExternalLocalizations>false</DeployExternalLocalizations>

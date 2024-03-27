@@ -1,3 +1,2 @@
-C:\GitHub\Film_Equipment_Database_App\TestInstaller\bin\Debug\cab1.cab
 C:\GitHub\Film_Equipment_Database_App\TestInstaller\bin\Debug\TestInstaller.msi
 C:\GitHub\Film_Equipment_Database_App\TestInstaller\bin\Debug\TestInstaller.wixpdb

@@ -1,5 +1,5 @@
 ﻿Loguri Echipamente
-1.0.0.1
+1.0.0.2
 
 winexe
 C#
@@ -11,10 +11,10 @@ false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\GitHub\Film_Equipment_Database_App\DatabaseTest\App.xaml
 5-1616869610
-
-12-992250105
-197740494962
+2-932721777
+132063896655
+198-402971922
 addCategory.xaml;addEquipment.xaml;addLog.xaml;addStudent.xaml;MainWindow.xaml;
 
-True
+False
 

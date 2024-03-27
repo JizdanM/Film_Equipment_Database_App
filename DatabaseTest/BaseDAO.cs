@@ -1,14 +1,32 @@
-﻿using Npgsql;
+﻿using Loguri_Echipamente;
+using Npgsql;
 using System;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
+using System.Text.Json;
 using System.Windows;
 
 namespace DatabaseTest
 {
     internal class BaseDAO
     {
-        private string connectionString = "Host=localhost;Username=postgres;Password=thisispass321;Database=Echipamente";
+
+        string connectionString = "";
+
+        public BaseDAO()
+        {
+            try
+            {
+                string json = File.ReadAllText("database.json");
+                AppConfig config = JsonSerializer.Deserialize<AppConfig>(json);
+                connectionString = config.ConnectionString;
+            } catch (Exception e)
+            {
+                MessageBox.Show("A aparut o eroare:\n" + e.Message);
+            }
+        }
 
         public DataTable LoadData(string query)
         {

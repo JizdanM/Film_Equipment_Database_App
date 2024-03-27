@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define DatabaseTest_TargetDir=$(var.Loguri Echipamente.TargetDir)?>
-	<!-- Define app id for each Platform -->
-	<?if $(var.Platform)=x64 ?>
-	<?define ProductCode = "{D2088CD5-9872-4BC7-8D13-4C941C93B510}" ?>
-	<?else?>
-	<?define ProductCode = "{709C6362-9762-4446-8A42-820895752ACB}" ?>
-	<?endif?>
 
 	<!-- App code -->
 	<?define UpgradeCode = "{856EE306-3CA1-4AAD-9121-23EB0FD3E1B5}" ?>
 
 	<!-- Version -->
-	<?define BuildVersion = 1.0.0.1 ?><?define Loguri Echipamente_TargetDir=$(var.Loguri Echipamente.TargetDir)?>
+	<?define BuildVersion = 1.0.0.2 ?><?define Loguri Echipamente_TargetDir=$(var.Loguri Echipamente.TargetDir)?>
 	
 	<!-- Product -->
-	<Product Id="$(var.ProductCode)" Name="Loguri Echipamente" Language="1033" Version="$(var.BuildVersion)" Manufacturer="JizdanM" UpgradeCode="$(var.UpgradeCode)">
+	<Product Id="D2088CD5-9872-4BC7-8D13-4C941C93B510" Name="Loguri Echipamente" Language="1033" Version="$(var.BuildVersion)" Manufacturer="JizdanM" UpgradeCode="$(var.UpgradeCode)">
 		
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Manufacturer="JizdanM" />
 
+		<Icon Id="database_light.ico" SourceFile="$(var.ProjectDir)database_light.ico" />
+		<Property Id="ARPPRODUCTICON" Value="database_light.ico" />
+		
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+		<UIRef Id="WixUI_InstallDir" />
+		
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+		<MediaTemplate EmbedCab="yes" />
 
 		<Feature Id="ProductFeature" Title="Loguri Echipamente" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
@@ -34,12 +34,12 @@
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
 				<Directory Id="INSTALLFOLDER" Name="Loguri Echipamente">
-					<Directory Id="BACKUPFOLDER" Name="Backups" />
+					<Directory Id="Backups" Name="Backups" />
 				</Directory>
 			</Directory>
 				
 			<Directory Id="ProgramMenuFolder">
-				<Directory Id="ApplicationProgramsFolder" Name="MyWpfApplication" />
+				<Directory Id="ApplicationProgramsFolder" Name="Loguri Echipamente" />
 			</Directory>
 			<Directory Id="DesktopFolder" Name="Desktop" />
 		</Directory>
@@ -117,6 +117,18 @@
 			<Component Id="System.Text.Encodings.Web.dll" Guid="1648f2b7-5d3b-43ab-b9d7-3f4b52e7d48c">
 			  <File Id="System.Text.Encodings.Web.dll" Name="System.Text.Encodings.Web.dll" Source="$(var.Loguri Echipamente_TargetDir)System.Text.Encodings.Web.dll" />
 			</Component>
+			<Component Id="Loguri_Echipamente.dll.config" Guid="4a4396f0-7d3d-48aa-940a-0f675692df03">
+			  <File Id="Loguri_Echipamente.dll.config" Name="Loguri Echipamente.dll.config" Source="$(var.Loguri Echipamente_TargetDir)Loguri Echipamente.dll.config" />
+			</Component>
+			
+			<Component Id="JsonComponent" Guid="9D6834EB-88C9-4F03-B8A3-505CD414CC35">
+				<File Source="$(var.Loguri Echipamente_TargetDir)Loguri Echipamente.dll.config" KeyPath="yes" />
+				<NeverOverwrite />
+			</Component>
+			<Component Id="database.json" Guid="a1eab64c-bc5a-464e-aae8-5bcf0985c8bf">
+			  <File Id="database.json" Name="database.json" Source="$(var.Loguri Echipamente_TargetDir)database.json" />
+			</Component>
+
 			
 		</ComponentGroup>
 	</Fragment>
