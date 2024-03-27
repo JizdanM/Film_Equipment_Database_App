@@ -23,6 +23,7 @@
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="database_dark.ico" />
     <Content Include="database_light.ico" />
     <Content Include="Loguri Echipamente.wax" />
   </ItemGroup>

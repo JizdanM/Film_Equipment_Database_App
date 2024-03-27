@@ -25,6 +25,7 @@ namespace DatabaseTest
         private void settingsToolStripMenuItem_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Vor fi adaugate in viitor.");
+            MessageBox.Show("Backup-uri vor fi in urmatoarea versiune.");
             //dao.BackupDatabase(AppDomain.CurrentDomain.BaseDirectory + "Backups\\dbbackup");
         }
 

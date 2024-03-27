@@ -69,7 +69,7 @@ namespace DatabaseTest {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Loguri Echipamente;V1.0.0.2;component/addcategory.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Loguri Echipamente;V1.0.3;component/addcategory.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\addCategory.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
