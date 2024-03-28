@@ -1,0 +1,20 @@
+﻿Loguri Echipamente
+1.0.3
+
+winexe
+C#
+.cs
+C:\GitHub\Film_Equipment_Database_App\Loguri Echipamente\obj\Release\net6.0-windows\
+Loguri_Echipamente
+none
+false
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
+C:\GitHub\Film_Equipment_Database_App\Loguri Echipamente\App.xaml
+61961962259
+3-450007694
+12769613511
+1991070294306
+addCategory.xaml;addEquipment.xaml;addLog.xaml;addStudent.xaml;MainWindow.xaml;setConnection.xaml;
+
+True
+

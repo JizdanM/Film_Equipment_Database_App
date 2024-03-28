@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loguri Echipamente", "DatabaseTest\Loguri Echipamente.csproj", "{0D4CED1E-FDC4-46C3-B339-7175581A8A94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loguri Echipamente", "Loguri Echipamente\Loguri Echipamente.csproj", "{0D4CED1E-FDC4-46C3-B339-7175581A8A94}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Loguri Echipamente Installer", "TestInstaller\Loguri Echipamente Installer.wixproj", "{8019021F-7DFB-4D04-9859-56980E8B88B8}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Loguri Echipamente Installer", "Installer\Loguri Echipamente Installer.wixproj", "{8019021F-7DFB-4D04-9859-56980E8B88B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Loguri_Echipamente.setConnection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Loguri_Echipamente"
+        mc:Ignorable="d"
+        Title="setConnection" Height="364" Width="339" Icon="database_light.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="99*"/>
+            <RowDefinition Height="17*"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Serverul" Margin="27,32,0,0" VerticalAlignment="Top" Width="92" HorizontalAlignment="Left" FontFamily="Microsoft Sans Serif" FontSize="17"/>
+        <TextBox x:Name="txtServer" HorizontalAlignment="Left" Margin="162,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontFamily="Microsoft Sans Serif" FontSize="18"/>
+
+        <Label Content="Loginul" Margin="27,103,0,0" VerticalAlignment="Top" Width="92" HorizontalAlignment="Left" FontFamily="Microsoft Sans Serif" FontSize="17"/>
+        <TextBox x:Name="txtLogin" HorizontalAlignment="Left" Margin="162,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontFamily="Microsoft Sans Serif" FontSize="18"/>
+
+        <Label Content="Parola" Margin="27,170,0,0" VerticalAlignment="Top" Width="92" HorizontalAlignment="Left" FontFamily="Microsoft Sans Serif" FontSize="17"/>
+        <TextBox x:Name="txtPass" HorizontalAlignment="Left" Margin="162,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" FontFamily="Microsoft Sans Serif" FontSize="18"/>
+
+        <Label Content="Numele bazei" Margin="27,235,0,0" VerticalAlignment="Top" Width="117" HorizontalAlignment="Left" FontFamily="Microsoft Sans Serif" FontSize="17"/>
+        <TextBox x:Name="txtDatabase" HorizontalAlignment="Left" Margin="162,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" FontFamily="Microsoft Sans Serif" FontSize="18"/>
+
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="236,0,0,0" VerticalAlignment="Center" Height="27" Width="68" Grid.Row="1" FontFamily="Microsoft Sans Serif" FontWeight="Bold" FontSize="17" Click="btnSave_Click"/>
+    </Grid>
+</Window>
