@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.general.equiplogs.MainController">
+    <children>
+        <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1200.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Setări" />
+                  <MenuItem mnemonicParsing="false" onAction="#closeBtn" text="Închide" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Afișează">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#showEquipmentBtn" text="Echipamente" />
+                  <MenuItem mnemonicParsing="false" onAction="#showCategoryBtn" text="Categorii" />
+                  <MenuItem mnemonicParsing="false" onAction="#showStudentsBtn" text="Studenți" />
+                  <MenuItem mnemonicParsing="false" onAction="#showLogsBtn" text="Loguri" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Add" />
+                  <MenuItem mnemonicParsing="false" text="Edit" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TableView fx:id="equipTable" focusTraversable="false" layoutY="25.0" prefHeight="628.0" prefWidth="1200.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+        <Button focusTraversable="false" layoutX="1111.0" layoutY="659.0" mnemonicParsing="false" onAction="#refreshBtnClick" prefHeight="32.0" prefWidth="82.0" text="Refresh" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="7.0">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>
