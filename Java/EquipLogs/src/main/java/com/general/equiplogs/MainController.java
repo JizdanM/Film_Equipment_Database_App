@@ -1,6 +1,6 @@
 package com.general.equiplogs;
 
-import daologic.ConnectDAO;
+import daologic.RequestDAO;
 import entity.Equipment;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,9 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class MainController {
     @FXML
@@ -29,16 +27,8 @@ public class MainController {
 
     @FXML
     protected void showEquipmentBtn() {
-        ConnectDAO connectDAO = new ConnectDAO();
-        Connection connection = connectDAO.getConnection();
-
-        String connectQuery = "SELECT * FROM equipment";
-
         try {
             equipTable.getColumns().clear();
-
-            Statement statement = connection.createStatement();
-            ResultSet output = statement.executeQuery(connectQuery);
 
             TableColumn<Equipment, Integer> idColumn = new TableColumn<>("ID");
             idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -52,6 +42,7 @@ public class MainController {
             equipTable.getColumns().addAll(idColumn, equipmentColumn, categoryColumn);
             equipTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
 
+            ResultSet output = new RequestDAO().requestData(RequestDAO.REQ_EQUIPMENT);
             ObservableList<Equipment> equipList = FXCollections.observableArrayList();
 
             while(output.next()){
@@ -83,7 +74,7 @@ public class MainController {
 
     @FXML
     protected void refreshBtnClick() {
-
+        // TODO: Figure out how to call the last request and display it
     }
 
 }
