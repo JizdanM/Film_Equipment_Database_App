@@ -2,16 +2,16 @@ package entity;
 
 public class Student {
     private int id;
-    private String nume;
-    private String prenume;
+    private String name;
+    private String surname;
     private String group;
     private String email;
     private String phoneNr;
 
-    public Student(int id, String nume, String prenume, String group, String email, String phoneNr) {
+    public Student(int id, String name, String surname, String group, String email, String phoneNr) {
         this.id = id;
-        this.nume = nume;
-        this.prenume = prenume;
+        this.name = name;
+        this.surname = surname;
         this.group = group;
         this.email = email;
         this.phoneNr = phoneNr;
@@ -25,20 +25,20 @@ public class Student {
         this.id = id;
     }
 
-    public String getNume() {
-        return nume;
+    public String getName() {
+        return name;
     }
 
-    public void setNume(String nume) {
-        this.nume = nume;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPrenume() {
-        return prenume;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPrenume(String prenume) {
-        this.prenume = prenume;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getGroup() {

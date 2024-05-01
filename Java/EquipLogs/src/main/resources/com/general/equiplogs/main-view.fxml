@@ -4,38 +4,43 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.general.equiplogs.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.general.equiplogs.MainController">
     <children>
-        <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="1200.0" AnchorPane.topAnchor="0.0">
+        <MenuBar prefHeight="25.0" prefWidth="1200.0" AnchorPane.topAnchor="0.0">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Setări" />
-                  <MenuItem mnemonicParsing="false" onAction="#closeBtn" text="Închide" />
+                        <MenuItem fx:id="btnSetting" mnemonicParsing="false" text="Setări" />
+                  <MenuItem fx:id="btnExit" mnemonicParsing="false" text="Închide" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Afișează">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#showEquipmentBtn" text="Echipamente" />
-                  <MenuItem mnemonicParsing="false" onAction="#showCategoryBtn" text="Categorii" />
-                  <MenuItem mnemonicParsing="false" onAction="#showStudentsBtn" text="Studenți" />
-                  <MenuItem mnemonicParsing="false" onAction="#showLogsBtn" text="Loguri" />
+                        <MenuItem fx:id="btnShowEquipment" mnemonicParsing="false" text="Echipamente" />
+                  <MenuItem fx:id="btnShowCategory" mnemonicParsing="false" text="Categorii" />
+                  <MenuItem fx:id="btnShowStudents" mnemonicParsing="false" text="Studenți" />
+                  <MenuItem fx:id="btnShowLogs" mnemonicParsing="false" text="Loguri" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Add" />
-                  <MenuItem mnemonicParsing="false" text="Edit" />
-                  <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem fx:id="btnAdd" mnemonicParsing="false" text="Add" />
+                  <MenuItem fx:id="btnEdit" mnemonicParsing="false" text="Edit" />
+                  <MenuItem fx:id="btnDelete" mnemonicParsing="false" text="Delete" />
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
-        <TableView fx:id="equipTable" focusTraversable="false" layoutY="25.0" prefHeight="628.0" prefWidth="1200.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
-        <Button focusTraversable="false" layoutX="1111.0" layoutY="659.0" mnemonicParsing="false" onAction="#refreshBtnClick" prefHeight="32.0" prefWidth="82.0" text="Refresh" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="7.0">
+        <TableView fx:id="equipTable" focusTraversable="false" prefHeight="628.0" prefWidth="1200.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+        <Button focusTraversable="false" mnemonicParsing="false" onAction="#refreshBtnClick" prefHeight="32.0" prefWidth="82.0" text="Refresh" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="7.0">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
+      <Button fx:id="btnReturn" disable="true" focusTraversable="false" layoutX="1023.0" layoutY="659.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="82.0" text="Return" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="95.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

@@ -1,14 +1,17 @@
 package com.general.equiplogs;
 
 import daologic.RequestDAO;
+import entity.Category;
 import entity.Equipment;
+import entity.Logs;
+import entity.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 
 public class MainController {
@@ -16,17 +19,96 @@ public class MainController {
     private TableView equipTable;
 
     @FXML
+    private MenuItem btnSetting;
+    @FXML
+    private MenuItem btnExit;
+    @FXML
+    private MenuItem btnShowEquipment;
+    @FXML
+    private MenuItem btnShowCategory;
+    @FXML
+    private MenuItem btnShowStudents;
+    @FXML
+    private MenuItem btnShowLogs;
+    @FXML
+    private MenuItem btnAdd;
+    @FXML
+    private MenuItem btnEdit;
+    @FXML
+    private MenuItem btnDelete;
+
+    @FXML
+    private Button btnReturn;
+
+    /*
+    /// -----Constructors / Initializers
+     */
+
+    @FXML
+    private void initialize() {
+        // TODO: Find a bette way to hide "Return" button (if possible)
+        btnSetting.setOnAction(actionEvent -> {
+            hideReturnButton();
+            // Function to open setting window              (!!--REPLACE--!!)
+        });
+
+        btnExit.setOnAction(event -> {
+            close();
+        });
+
+        btnShowEquipment.setOnAction(event -> {
+            hideReturnButton();
+            showEquipment();
+        });
+
+        btnShowCategory.setOnAction(event -> {
+            hideReturnButton();
+            showCategory();
+        });
+
+        btnShowStudents.setOnAction(event -> {
+            hideReturnButton();
+            showStudents();
+        });
+
+        btnShowLogs.setOnAction(event -> {
+            showReturnButton();
+            showLogs();
+        });
+
+        btnAdd.setOnAction(event -> {
+            hideReturnButton();
+            // Function for data insertion              (!!--REPLACE--!!)
+        });
+
+        btnEdit.setOnAction(event -> {
+            hideReturnButton();
+            // Function for data editing                (!!--REPLACE--!!)
+        });
+
+        btnDelete.setOnAction(event -> {
+            hideReturnButton();
+            // Function for data deleting               (!!--REPLACE--!!)
+        });
+    }
+
+    /*
+    /// -----Menu buttons functions
+    /// -----TODO: Implement inheritance instead of useless variables
+     */
+
+    @FXML
     protected void settingsBtn() {
         // TODO: Create a simple setting window (Language / Theme etc.)
     }
 
     @FXML
-    protected void closeBtn() {
+    protected void close() {
         System.exit(0);
     }
 
     @FXML
-    protected void showEquipmentBtn() {
+    protected void showEquipment() {
         try {
             equipTable.getColumns().clear();
 
@@ -36,17 +118,17 @@ public class MainController {
             TableColumn<Equipment, String> equipmentColumn = new TableColumn<>("Equipment");
             equipmentColumn.setCellValueFactory(new PropertyValueFactory<>("equipName"));
 
-            TableColumn<Equipment, Integer> categoryColumn = new TableColumn<>("Category");
-            categoryColumn.setCellValueFactory(new PropertyValueFactory<>("catID"));
+            TableColumn<Equipment, String> categoryColumn = new TableColumn<>("Category");
+            categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
 
             equipTable.getColumns().addAll(idColumn, equipmentColumn, categoryColumn);
             equipTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
 
-            ResultSet output = new RequestDAO().requestData(RequestDAO.REQ_EQUIPMENT);
+            ResultSet output = new RequestDAO().requestData(RequestDAO.REQ_EQUIPMENT_USR);
             ObservableList<Equipment> equipList = FXCollections.observableArrayList();
 
             while(output.next()){
-                Equipment equip = new Equipment(output.getInt("id"), output.getString("equipname"), output.getInt("categoryid"));
+                Equipment equip = new Equipment(output.getInt("id"), output.getString("equipname"), output.getString("catname"));
                 equipList.add(equip);
             }
 
@@ -58,23 +140,153 @@ public class MainController {
     }
 
     @FXML
-    protected void showCategoryBtn() {
+    protected void showCategory() {
+        try {
+            equipTable.getColumns().clear();
 
+            TableColumn<Category, Integer> idColumn = new TableColumn<>("ID");
+            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+            TableColumn<Category, String> categoryColumn = new TableColumn<>("Category");
+            categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+
+            equipTable.getColumns().addAll(idColumn, categoryColumn);
+            equipTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+
+            ResultSet output = new RequestDAO().requestData(RequestDAO.REQ_CATEGORY);
+            ObservableList<Category> categoryList = FXCollections.observableArrayList();
+
+            while(output.next()){
+                Category category = new Category(output.getInt("id"), output.getString("catname"));
+                categoryList.add(category);
+            }
+
+            equipTable.setItems(categoryList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    protected void showStudentsBtn() {
+    protected void showStudents() {
+        try {
+            equipTable.getColumns().clear();
 
+            TableColumn<Student, Integer> idColumn = new TableColumn<>("ID");
+            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+            TableColumn<Student, String> nameColumn = new TableColumn<>("Nume");
+            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+            TableColumn<Student, String> surnameColumn = new TableColumn<>("Prenume");
+            surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
+
+            TableColumn<Student, String> groupColumn = new TableColumn<>("Grupa");
+            groupColumn.setCellValueFactory(new PropertyValueFactory<>("group"));
+
+            TableColumn<Student, String> emailColumn = new TableColumn<>("Email");
+            emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+            TableColumn<Student, String> phoneNumberColumn = new TableColumn<>("NrTelefon");
+            phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNr"));
+
+            equipTable.getColumns().addAll(idColumn, nameColumn, surnameColumn, groupColumn, emailColumn, phoneNumberColumn);
+            equipTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+
+            ResultSet output = new RequestDAO().requestData(RequestDAO.REQ_STUDENTS);
+            ObservableList<Student> studentList = FXCollections.observableArrayList();
+
+            while(output.next()){
+                Student student = new Student(output.getInt("id"), output.getString("name")
+                        , output.getString("surname"), output.getString("class")
+                        , output.getString("email"), output.getString("phonenumber"));
+                studentList.add(student);
+            }
+
+            equipTable.setItems(studentList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    protected void showLogsBtn() {
+    protected void showLogs() {
+        try {
+            equipTable.getColumns().clear();
 
+            TableColumn<Logs, Integer> idColumn = new TableColumn<>("ID");
+            idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+            TableColumn<Logs, String> equipNameColumn = new TableColumn<>("Echipament");
+            equipNameColumn.setCellValueFactory(new PropertyValueFactory<>("equipName"));
+
+            TableColumn<Logs, String> nameColumn = new TableColumn<>("Nume");
+            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+            TableColumn<Logs, String> surnameColumn = new TableColumn<>("Prenume");
+            surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
+
+            TableColumn<Logs, Date> lendDateColumn = new TableColumn<>("Data imprumutarii");
+            lendDateColumn.setCellValueFactory(new PropertyValueFactory<>("lendDate"));
+
+            TableColumn<Logs, Boolean> returnedColumn = new TableColumn<>("Returnat");
+            returnedColumn.setCellValueFactory(new PropertyValueFactory<>("returned"));
+
+            TableColumn<Logs, String> studentClassColumn = new TableColumn<>("Clasa");
+            studentClassColumn.setCellValueFactory(new PropertyValueFactory<>("studentClass"));
+
+            TableColumn<Logs, String> emailColumn = new TableColumn<>("Email");
+            emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+            TableColumn<Logs, String> phoneNumberColumn = new TableColumn<>("NrTelefon");
+            phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNr"));
+
+            equipTable.getColumns().addAll(idColumn, equipNameColumn, nameColumn, surnameColumn, lendDateColumn,
+                    returnedColumn, studentClassColumn, emailColumn, phoneNumberColumn);
+            equipTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
+
+            ResultSet output = new RequestDAO().requestData(RequestDAO.REQ_LOGS_USR);
+            ObservableList<Logs> logList = FXCollections.observableArrayList();
+
+            while(output.next()){
+                Logs log = new Logs(output.getInt("id"), output.getString("equipname")
+                        , output.getString("name"), output.getString("surname")
+                        , output.getDate("lenddate"), output.getBoolean("returned")
+                        , output.getString("class"), output.getString("email"), output.getString("phonenumber"));
+                logList.add(log);
+            }
+
+            equipTable.setItems(logList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
+    /*
+    /// -----Interaction buttons functions
+     */
 
     @FXML
     protected void refreshBtnClick() {
         // TODO: Figure out how to call the last request and display it
+    }
+
+    /*
+    /// -----Helper functions
+    */
+    @FXML
+    protected void showReturnButton() {
+        btnReturn.setOpacity(1);
+        btnReturn.setDisable(false);
+    }
+
+    @FXML
+    private void hideReturnButton() {
+        btnReturn.setOpacity(0);
+        btnReturn.setDisable(true);
     }
 
 }

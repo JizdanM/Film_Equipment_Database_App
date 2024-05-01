@@ -7,6 +7,7 @@ module com.general.equiplogs {
     requires org.kordamp.ikonli.javafx;
     requires java.sql;
     requires jakarta.persistence;
+    requires java.desktop;
 
     opens com.general.equiplogs to javafx.fxml;
     opens entity;

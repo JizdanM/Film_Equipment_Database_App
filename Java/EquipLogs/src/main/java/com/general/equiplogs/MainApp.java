@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainApp extends Application {
+
     // Leave like this for now. Might require changes in the future
     @Override
     public void start(Stage stage) throws IOException {
@@ -18,6 +19,7 @@ public class MainApp extends Application {
         stage.show();
     }
 
+    // Window launch
     public static void main(String[] args) {
         launch();
     }
