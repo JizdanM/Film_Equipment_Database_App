@@ -1,30 +1,11 @@
 package entity;
 
-public class Equipment {
-    // TODO: Idiot implement category inheritance instead of extra variables
-    private int id;
+public class Equipment extends Category {
     private String equipName;
-    private int catID;
-    private String category;
-
-    public Equipment(int id, String equipName, int catID) {
-        this.id = id;
-        this.equipName = equipName;
-        this.catID = catID;
-    }
 
     public Equipment(int id, String equipName, String category) {
-        this.id = id;
+        super(id, category);
         this.equipName = equipName;
-        this.category = category;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getEquipName() {
@@ -33,21 +14,5 @@ public class Equipment {
 
     public void setEquipName(String equipName) {
         this.equipName = equipName;
-    }
-
-    public int getCatID() {
-        return catID;
-    }
-
-    public void setCatID(int catID) {
-        this.catID = catID;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 }

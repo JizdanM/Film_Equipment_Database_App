@@ -5,6 +5,7 @@ import entity.Category;
 import entity.Equipment;
 import entity.Logs;
 import entity.Student;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -49,12 +50,10 @@ public class MainController {
         // TODO: Find a bette way to hide "Return" button (if possible)
         btnSetting.setOnAction(actionEvent -> {
             hideReturnButton();
-            // Function to open setting window              (!!--REPLACE--!!)
+            settingsBtn();
         });
 
-        btnExit.setOnAction(event -> {
-            close();
-        });
+        btnExit.setOnAction(event -> close());
 
         btnShowEquipment.setOnAction(event -> {
             hideReturnButton();
@@ -94,7 +93,6 @@ public class MainController {
 
     /*
     /// -----Menu buttons functions
-    /// -----TODO: Implement inheritance instead of useless variables
      */
 
     @FXML
@@ -115,10 +113,10 @@ public class MainController {
             TableColumn<Equipment, Integer> idColumn = new TableColumn<>("ID");
             idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-            TableColumn<Equipment, String> equipmentColumn = new TableColumn<>("Equipment");
+            TableColumn<Equipment, String> equipmentColumn = new TableColumn<>("Echipament");
             equipmentColumn.setCellValueFactory(new PropertyValueFactory<>("equipName"));
 
-            TableColumn<Equipment, String> categoryColumn = new TableColumn<>("Category");
+            TableColumn<Equipment, String> categoryColumn = new TableColumn<>("Categorie");
             categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
 
             equipTable.getColumns().addAll(idColumn, equipmentColumn, categoryColumn);
@@ -135,7 +133,7 @@ public class MainController {
             equipTable.setItems(equipList);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
@@ -147,7 +145,7 @@ public class MainController {
             TableColumn<Category, Integer> idColumn = new TableColumn<>("ID");
             idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-            TableColumn<Category, String> categoryColumn = new TableColumn<>("Category");
+            TableColumn<Category, String> categoryColumn = new TableColumn<>("Categorie");
             categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
 
             equipTable.getColumns().addAll(idColumn, categoryColumn);
@@ -164,7 +162,7 @@ public class MainController {
             equipTable.setItems(categoryList);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
@@ -207,7 +205,7 @@ public class MainController {
             equipTable.setItems(studentList);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
@@ -220,13 +218,61 @@ public class MainController {
             idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 
             TableColumn<Logs, String> equipNameColumn = new TableColumn<>("Echipament");
-            equipNameColumn.setCellValueFactory(new PropertyValueFactory<>("equipName"));
+            equipNameColumn.setCellValueFactory(cellData -> {
+                Equipment equipment = cellData.getValue().getEquipment();
+                if (equipment != null) {
+                    return new SimpleStringProperty(equipment.getEquipName());
+                }
+                return new SimpleStringProperty("");
+            });
+
+            TableColumn<Logs, String> categoryNameColumn = new TableColumn<>("Categorie");
+            categoryNameColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
 
             TableColumn<Logs, String> nameColumn = new TableColumn<>("Nume");
-            nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+            nameColumn.setCellValueFactory(cellData -> {
+                Student student = cellData.getValue().getStudent();
+                if (student != null) {
+                    return new SimpleStringProperty(student.getName());
+                }
+                return new SimpleStringProperty("");
+            });
 
             TableColumn<Logs, String> surnameColumn = new TableColumn<>("Prenume");
-            surnameColumn.setCellValueFactory(new PropertyValueFactory<>("surname"));
+            surnameColumn.setCellValueFactory(cellData -> {
+                Student student = cellData.getValue().getStudent();
+                if (student != null) {
+                    return new SimpleStringProperty(student.getSurname());
+                }
+                return new SimpleStringProperty("");
+            });
+
+            TableColumn<Logs, String> studentClassColumn = new TableColumn<>("Clasa");
+            studentClassColumn.setCellValueFactory(cellData -> {
+                Student student = cellData.getValue().getStudent();
+                if (student != null) {
+                    return new SimpleStringProperty(student.getGroup());
+                }
+                return new SimpleStringProperty("");
+            });
+
+            TableColumn<Logs, String> emailColumn = new TableColumn<>("Email");
+            emailColumn.setCellValueFactory(cellData -> {
+                Student student = cellData.getValue().getStudent();
+                if (student != null) {
+                    return new SimpleStringProperty(student.getEmail());
+                }
+                return new SimpleStringProperty("");
+            });
+
+            TableColumn<Logs, String> phoneNumberColumn = new TableColumn<>("NrTelefon");
+            phoneNumberColumn.setCellValueFactory(cellData -> {
+                Student student = cellData.getValue().getStudent();
+                if (student != null) {
+                    return new SimpleStringProperty(student.getPhoneNr());
+                }
+                return new SimpleStringProperty("");
+            });
 
             TableColumn<Logs, Date> lendDateColumn = new TableColumn<>("Data imprumutarii");
             lendDateColumn.setCellValueFactory(new PropertyValueFactory<>("lendDate"));
@@ -234,40 +280,58 @@ public class MainController {
             TableColumn<Logs, Boolean> returnedColumn = new TableColumn<>("Returnat");
             returnedColumn.setCellValueFactory(new PropertyValueFactory<>("returned"));
 
-            TableColumn<Logs, String> studentClassColumn = new TableColumn<>("Clasa");
-            studentClassColumn.setCellValueFactory(new PropertyValueFactory<>("studentClass"));
-
-            TableColumn<Logs, String> emailColumn = new TableColumn<>("Email");
-            emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-
-            TableColumn<Logs, String> phoneNumberColumn = new TableColumn<>("NrTelefon");
-            phoneNumberColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNr"));
-
-            equipTable.getColumns().addAll(idColumn, equipNameColumn, nameColumn, surnameColumn, lendDateColumn,
-                    returnedColumn, studentClassColumn, emailColumn, phoneNumberColumn);
+            equipTable.getColumns().addAll(idColumn, equipNameColumn, categoryNameColumn, nameColumn, surnameColumn
+                    , studentClassColumn, emailColumn, phoneNumberColumn, lendDateColumn, returnedColumn);
             equipTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
 
             ResultSet output = new RequestDAO().requestData(RequestDAO.REQ_LOGS_USR);
             ObservableList<Logs> logList = FXCollections.observableArrayList();
 
             while(output.next()){
-                Logs log = new Logs(output.getInt("id"), output.getString("equipname")
-                        , output.getString("name"), output.getString("surname")
-                        , output.getDate("lenddate"), output.getBoolean("returned")
-                        , output.getString("class"), output.getString("email"), output.getString("phonenumber"));
+                Logs log = new Logs(output.getInt("log")
+                        , new Equipment(output.getInt("equipment"), output.getString("equipname")
+                                , output.getString("catname"))
+                        , new Student(output.getInt("student"), output.getString("name")
+                                , output.getString("surname"), output.getString("class")
+                                , output.getString("email"), output.getString("phonenumber"))
+                        , output.getDate("lenddate"), output.getBoolean("returned"));
                 logList.add(log);
             }
 
             equipTable.setItems(logList);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
         }
     }
 
     /*
     /// -----Interaction buttons functions
      */
+
+    @FXML
+    protected void returnedBtnClick() {
+        try {
+            Logs selectedEquipment = (Logs) equipTable.getSelectionModel().getSelectedItem();
+
+            if (selectedEquipment != null) {
+                int id = selectedEquipment.getId();
+
+                int updatedLines = new RequestDAO().updateCall(RequestDAO.RETURN_EQUIPMENT + id);
+                if (updatedLines != 0){
+                    showMessage("Echipamentul a fost returnat");
+                    showLogs();
+                } else {
+                    showError("Aplicatia nu a putut edita baza de date");
+                }
+            } else {
+                showError("Nu ati selectat logul!");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
 
     @FXML
     protected void refreshBtnClick() {
@@ -287,6 +351,22 @@ public class MainController {
     private void hideReturnButton() {
         btnReturn.setOpacity(0);
         btnReturn.setDisable(true);
+    }
+
+    private void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Eroare");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void showMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Mesaj");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

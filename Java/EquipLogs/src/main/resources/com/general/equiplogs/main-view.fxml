@@ -32,15 +32,15 @@
             </menus>
         </MenuBar>
         <TableView fx:id="equipTable" focusTraversable="false" prefHeight="628.0" prefWidth="1200.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+      <Button fx:id="btnReturn" disable="true" focusTraversable="false" layoutX="1023.0" layoutY="659.0" mnemonicParsing="false" onAction="#returnedBtnClick" opacity="0.0" prefHeight="32.0" prefWidth="82.0" text="Return" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="95.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
         <Button focusTraversable="false" mnemonicParsing="false" onAction="#refreshBtnClick" prefHeight="32.0" prefWidth="82.0" text="Refresh" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="7.0">
             <font>
                 <Font size="16.0" />
             </font>
         </Button>
-      <Button fx:id="btnReturn" disable="true" focusTraversable="false" layoutX="1023.0" layoutY="659.0" mnemonicParsing="false" opacity="0.0" prefHeight="32.0" prefWidth="82.0" text="Return" AnchorPane.bottomAnchor="6.0" AnchorPane.rightAnchor="95.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
     </children>
 </AnchorPane>

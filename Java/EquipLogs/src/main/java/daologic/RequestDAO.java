@@ -12,13 +12,29 @@ public class RequestDAO {
     /*
     /// -----Database calls
      */
-    // TODO: Define all the SQL resquests needed
-    public static final String REQ_EQUIPMENT = "SELECT * FROM equipment";
-    public static final String REQ_EQUIPMENT_USR = "SELECT equipment.id, equipname, catname FROM equipment INNER JOIN category ON equipment.categoryid = category.id";
-    public static final String REQ_CATEGORY = "SELECT * FROM category";
-    public static final String REQ_STUDENTS = "SELECT * FROM students";
-    public static final String REQ_LOGS = "SELECT * FROM logs";
-    public static final String REQ_LOGS_USR = "SELECT logs.id, equipname, name, surname, lenddate, returned, class, email, phonenumber FROM logs INNER JOIN equipment ON logs.equipment = equipment.id INNER JOIN students ON logs.student = students.id";
+
+    /*
+    /// -----Requests
+     */
+
+    // General calls
+    public static final String REQ_EQUIPMENT = "SELECT * FROM equipment ORDER BY id";
+    public static final String REQ_CATEGORY = "SELECT * FROM category ORDER BY id";
+    public static final String REQ_STUDENTS = "SELECT * FROM students ORDER BY id";
+    public static final String REQ_LOGS = "SELECT * FROM logs ORDER BY id";
+
+    // Detailed calls
+    public static final String REQ_EQUIPMENT_USR = "SELECT equipment.id, equipment.equipname, category.catname FROM equipment LEFT JOIN category ON equipment.categoryid = category.id ORDER BY equipment.id";
+    public static final String REQ_LOGS_USR = "SELECT logs.id AS log, equipment.id AS equipment, equipname, categoryid AS category, catname, students.id AS student, name, surname, class, email, phonenumber, lenddate, returned " +
+            "FROM logs LEFT JOIN equipment ON logs.equipment = equipment.id " +
+            "LEFT JOIN category ON equipment.categoryid = category.id " +
+            "LEFT JOIN students ON logs.student = students.id ORDER BY logs.id";
+
+    /*
+    /// -----Edit calls
+     */
+
+    public static final String RETURN_EQUIPMENT = "UPDATE logs SET returned = true WHERE id = ";
 
     /*
     /// -----Connection to database
@@ -27,6 +43,13 @@ public class RequestDAO {
     public ResultSet requestData(String requestLine) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet output = statement.executeQuery(requestLine);
+
+        return output;
+    }
+
+    public int updateCall(String requestLine) throws SQLException {
+        Statement statement = connection.createStatement();
+        int output = statement.executeUpdate(requestLine);
 
         return output;
     }
